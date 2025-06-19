@@ -20,7 +20,7 @@ TAG      ?= sha-$(GIT_COMMIT)$(GIT_TREE_STATE)
 
 IMAGE_NAME := jupyter-tensorflow-cuda-full
 
-BASE_IMAGE         := $(REGISTRY)/jupyter-tensorflow-cuda:$(TAG)
+BASE_IMAGE         := $(REGISTRY)/nvcr.io/nvidia/tensorflow:25.02-tf2-py3
 BASE_IMAGE_FOLDERS := jupyter-tensorflow-cuda
 
 # we use a separate registry-type cache to keep the main registry clean
