@@ -43,4 +43,5 @@ jobs:
       # TODO: support 'linux/arm64' for TensorFlow CUDA images
       build_arch: linux/amd64
       image_folders: |
+        jupyter-tensorflow-cuda
         jupyter-tensorflow-cuda-full
