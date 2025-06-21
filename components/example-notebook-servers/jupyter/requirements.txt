@@ -1,3 +1,2 @@
-jupyterthemes==0.20.0
-lesscpy==0.15.1
-ply==3.11
+jupyterlab_theme_solarized_dark==3.0.1
+atppuccin-jupyterlab==0.2.4
