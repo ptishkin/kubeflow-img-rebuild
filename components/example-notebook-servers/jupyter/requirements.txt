@@ -1,2 +1,2 @@
 jupyterlab_theme_solarized_dark==3.0.1
-atppuccin-jupyterlab==0.2.4
+catppuccin-jupyterlab==0.2.4
