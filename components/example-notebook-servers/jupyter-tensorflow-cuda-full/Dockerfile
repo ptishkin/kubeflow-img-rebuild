@@ -23,6 +23,8 @@ RUN mamba install -y -q \
  && mamba clean -a -f -y
 
 # install - requirements.txt
+USER root
 COPY --chown=${NB_USER}:${NB_GID} requirements.txt /tmp/requirements.txt
 RUN python3 -m pip install -r /tmp/requirements.txt --quiet --no-cache-dir \
  && rm -f /tmp/requirements.txt
+USER ${NB_USER}
