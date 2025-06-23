@@ -20,8 +20,8 @@ TAG      ?= sha-$(GIT_COMMIT)$(GIT_TREE_STATE)
 
 IMAGE_NAME := jupyter-tensorflow-cuda
 
-BASE_IMAGE         := $(REGISTRY)/jupyter:$(TAG)
-BASE_IMAGE_FOLDERS := jupyter
+BASE_IMAGE         := $(REGISTRY)/jupyter-tensorflow:$(TAG)
+BASE_IMAGE_FOLDERS := jupyter-tensorflow
 
 # we use a separate registry-type cache to keep the main registry clean
 # https://docs.docker.com/build/cache/backends/
