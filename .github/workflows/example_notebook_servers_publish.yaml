@@ -34,10 +34,22 @@ jobs:
       image_folders: |
         jupyter
 
+  jupyter_tensorflow_images:
+    name: Build & Push - Jupyter (TensorFlow)
+    uses: ./.github/workflows/example_notebook_servers_publish_TEMPLATE.yaml
+    needs: [ jupyter_images ]
+    secrets: inherit
+    with:
+      # TODO: support 'linux/arm64' for TensorFlow CUDA images
+      build_arch: linux/amd64
+      image_folders: |
+        jupyter-tensorflow
+        jupyter-tensorflow-full
+
   jupyter_tensorflow_cuda_images:
     name: Build & Push - Jupyter (TensorFlow + CUDA)
     uses: ./.github/workflows/example_notebook_servers_publish_TEMPLATE.yaml
-    needs: [ jupyter_images ]
+    needs: [ jupyter_tensorflow_images ]
     secrets: inherit
     with:
       # TODO: support 'linux/arm64' for TensorFlow CUDA images
