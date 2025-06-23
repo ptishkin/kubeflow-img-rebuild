@@ -2,7 +2,7 @@
 # NOTE: Use the Makefiles to build this image correctly.
 #
 
-ARG BASE_IMG=<jupyter>
+ARG BASE_IMG=<jupyter-tensorflow>
 FROM $BASE_IMG
 
 ARG TARGETARCH
