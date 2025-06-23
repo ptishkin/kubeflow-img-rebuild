@@ -80,9 +80,11 @@ RUN echo "jupyterlab ==${JUPYTERLAB_VERSION}" >> ${CONDA_DIR}/conda-meta/pinned 
  && conda clean -a -f -y
 
 # install - requirements.txt
+USER root
 COPY --chown=${NB_USER}:${NB_GID} requirements.txt /tmp
 RUN python3 -m pip install -r /tmp/requirements.txt --quiet --no-cache-dir \
  && rm -f /tmp/requirements.txt
+USER ${NB_USER}
 
 # s6 - copy scripts
 COPY --chown=${NB_USER}:${NB_GID} --chmod=755 s6/ /etc
