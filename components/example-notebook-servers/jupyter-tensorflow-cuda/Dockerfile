@@ -47,7 +47,9 @@ RUN ln -s ${TENSORRT_LIBS}/libnvinfer.so.${TENSORRT_LIBS_VERSION%%.*} ${TENSORRT
 # envs - cudnn, tensorrt
 ENV LD_LIBRARY_PATH ${LD_LIBRARY_PATH}/nvidia/cudnn/lib:${TENSORRT_LIBS}
 
-# install - requirements.txt
+# install - requirements.txt (in self manual you don't recommend pip install from user, because after start home dir replaced by mount point PVC)
+USER root
 COPY --chown=${NB_USER}:${NB_GID} requirements.txt /tmp
 RUN python3 -m pip install -r /tmp/requirements.txt --quiet --no-cache-dir \
  && rm -f /tmp/requirements.txt
+USER ${NB_USER}
