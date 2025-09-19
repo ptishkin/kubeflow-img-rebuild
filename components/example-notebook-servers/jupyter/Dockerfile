@@ -65,12 +65,12 @@ RUN case "${TARGETARCH}" in \
  && rm /tmp/Miniforge3.sh \
  && conda config --system --set auto_update_conda false \
  && conda config --system --set show_channel_urls true \
- && echo "python ==${PYTHON_VERSION}" >> ${CONDA_DIR}/conda-meta/pinned \
- && conda install -y -q \
-    python=${PYTHON_VERSION} \
-    pip=${PIP_VERSION} \
- && conda update -y -q --all \
- && conda clean -a -f -y
+ # && echo "python ==${PYTHON_VERSION}" >> ${CONDA_DIR}/conda-meta/pinned \
+ # && conda install -y -q \
+ #    python=${PYTHON_VERSION} \
+ #    pip=${PIP_VERSION} \
+ # && conda update -y -q --all \
+ # && conda clean -a -f -y
 
 # install - jupyter
 RUN echo "jupyterlab ==${JUPYTERLAB_VERSION}" >> ${CONDA_DIR}/conda-meta/pinned \
