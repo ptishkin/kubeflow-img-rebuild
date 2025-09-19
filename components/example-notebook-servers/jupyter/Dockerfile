@@ -22,7 +22,6 @@ ARG PYTHON_VERSION=3.11.11
 # install -- node.js
 RUN export DEBIAN_FRONTEND=noninteractive \
  && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /usr/share/keyrings/nodesource-repo.gpg \
-# && curl -sL "https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key" | apt-key add - \
  && echo "deb [signed-by=/usr/share/keyrings/nodesource-repo.gpg] https://deb.nodesource.com/node_${NODE_MAJOR_VERSION}.x nodistro main" > /etc/apt/sources.list.d/nodesource.list \
  && apt-get -yq update \
  && apt-get -yq install --no-install-recommends \
@@ -69,8 +68,8 @@ RUN case "${TARGETARCH}" in \
  # && conda install -y -q \
  #    python=${PYTHON_VERSION} \
  #    pip=${PIP_VERSION} \
- # && conda update -y -q --all \
- # && conda clean -a -f -y
+ && conda update -y -q --all \
+ && conda clean -a -f -y
 
 # install - jupyter
 RUN echo "jupyterlab ==${JUPYTERLAB_VERSION}" >> ${CONDA_DIR}/conda-meta/pinned \
