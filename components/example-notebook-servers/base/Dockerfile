@@ -60,7 +60,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     locales \
     lsb-release \
     nano \
-    software-properties-common \
+#    software-properties-common \
     tzdata \
     unzip \
     vim \
