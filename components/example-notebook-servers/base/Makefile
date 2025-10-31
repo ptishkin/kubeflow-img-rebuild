@@ -21,7 +21,7 @@ TAG      ?= sha-$(GIT_COMMIT)$(GIT_TREE_STATE)
 IMAGE_NAME := base
 
 #BASE_IMAGE         := ubuntu:22.04
-BASE_IMAGE         := python:3.14.0rc3-slim
+BASE_IMAGE         := python:3.12-slim-trixie
 BASE_IMAGE_FOLDERS :=
 
 # we use a separate registry-type cache to keep the main registry clean
