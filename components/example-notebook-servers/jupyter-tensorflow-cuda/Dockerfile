@@ -28,7 +28,7 @@ ENV NVIDIA_REQUIRE_CUDA "cuda>=12.3"
 #  - About '[and-cuda]' option: https://github.com/tensorflow/tensorflow/blob/v2.17.1/tensorflow/tools/pip_package/setup.py#L153-L164
 #  - TODO: when updating TensorRT, you might need to change `tensorrt`, `tensorrt-libs`, and `tensorrt-bindings`
 #          to `tensorrt-cu12`, `tensorrt-cu12-libs`, and `tensorrt-cu12-bindings` respectively
-RUN python3 -m pip install --upgrade pip setuptools &&
+RUN python3 -m pip install --upgrade pip setuptools && \
     python3 -m pip install --quiet --no-cache-dir --extra-index-url https://pypi.nvidia.com \
     tensorflow[and-cuda]==${TENSORFLOW_VERSION} \
     tensorrt==${TENSORRT_VERSION} \
