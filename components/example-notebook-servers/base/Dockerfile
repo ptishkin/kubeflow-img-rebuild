@@ -55,6 +55,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     ca-certificates \
     curl \
     git \
+    git-lfs \
+    procps \
     gnupg \
     gnupg2 \
     locales \
