@@ -25,7 +25,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
  && echo "deb [signed-by=/usr/share/keyrings/nodesource-repo.gpg] https://deb.nodesource.com/node_${NODE_MAJOR_VERSION}.x nodistro main" > /etc/apt/sources.list.d/nodesource.list \
  && apt-get -yq update \
  && apt-get -yq install --no-install-recommends \
-    nodejs \
+    nodejs procps \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
