@@ -40,7 +40,7 @@ RUN python3 -m pip install --upgrade pip setuptools && \
 #  - We are creating symlinks for the following libs, as this is where TF looks for them:
 #     - libnvinfer.so.8.6.1 -> libnvinfer.so.8
 #     - libnvinfer_plugin.so.8.6.1 -> libnvinfer_plugin.so.8
-ENV PYTHON_SITE_PACKAGES /opt/conda/lib/python3.11/site-packages
+ENV PYTHON_SITE_PACKAGES /opt/conda/lib/python3.12/site-packages
 ENV TENSORRT_LIBS ${PYTHON_SITE_PACKAGES}/tensorrt_libs
 RUN ln -s ${TENSORRT_LIBS}/libnvinfer.so.${TENSORRT_LIBS_VERSION%%.*} ${TENSORRT_LIBS}/libnvinfer.so.${TENSORRT_LIBS_VERSION} \
  && ln -s ${TENSORRT_LIBS}/libnvinfer_plugin.so.${TENSORRT_LIBS_VERSION%%.*} ${TENSORRT_LIBS}/libnvinfer_plugin.so.${TENSORRT_LIBS_VERSION}
