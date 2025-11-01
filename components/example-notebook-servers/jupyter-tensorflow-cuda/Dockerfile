@@ -14,9 +14,9 @@ ARG TARGETARCH
 #          when updating past that version, either remove all TensorRT related packages,
 #          or investigate if there is a way to keep TensorRT support
 ARG TENSORFLOW_VERSION=2.17.1
-ARG TENSORRT_VERSION=8.6.1.post1
-ARG TENSORRT_LIBS_VERSION=8.6.1
-ARG TENSORRT_BINDINGS_VERSION=8.6.1
+ARG TENSORRT_VERSION=10.13.3.9
+ARG TENSORRT_LIBS_VERSION=10.13.3.9
+ARG TENSORRT_BINDINGS_VERSION=10.13.3.9
 
 # nvidia container toolkit
 # https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/docker-specialized.html
@@ -31,9 +31,9 @@ ENV NVIDIA_REQUIRE_CUDA "cuda>=12.3"
 RUN python3 -m pip install --upgrade pip setuptools && \
     python3 -m pip install --quiet --no-cache-dir --extra-index-url https://pypi.nvidia.com \
     tensorflow[and-cuda]==${TENSORFLOW_VERSION} \
-    tensorrt==${TENSORRT_VERSION} \
-    tensorrt-libs==${TENSORRT_LIBS_VERSION} \
-    tensorrt-bindings==${TENSORRT_BINDINGS_VERSION}
+    tensorrt-cu12==${TENSORRT_VERSION} \
+    tensorrt-cu12-libs==${TENSORRT_LIBS_VERSION} \
+    tensorrt-cu12-bindings==${TENSORRT_BINDINGS_VERSION}
 
 # create symlinks for TensorRT libs
 #  - https://github.com/tensorflow/tensorflow/issues/61986#issuecomment-1880489731
